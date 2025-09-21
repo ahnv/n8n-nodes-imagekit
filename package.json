@@ -1,10 +1,10 @@
 {
   "name": "n8n-nodes-imagekit",
   "version": "0.1.0",
-  "description": "n8n community node to work with the Example API",
+  "description": "n8n community node for the ImageKit Media APIs",
   "license": "MIT",
-  "homepage": "https://example.com",
-  "keywords": ["n8n-community-node-package"],
+  "homepage": "https://github.com/ahnvd/n8n-nodes-imagekit",
+  "keywords": ["n8n-community-node-package", "imagekit", "media", "storage"],
   "author": { "name": "Abhinav Dhiman", "email": "dhiman.ahnv@gmail.com" },
   "repository": { "type": "git", "url": "" },
   "scripts": {

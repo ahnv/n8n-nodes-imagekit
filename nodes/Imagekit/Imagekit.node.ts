@@ -1,6 +1,9 @@
-import { NodeConnectionType, type INodeType, type INodeTypeDescription } from 'n8n-workflow';
-import { userDescription } from './resources/user';
-import { companyDescription } from './resources/company';
+import type {
+	INodeType,
+	INodeTypeDescription,
+} from 'n8n-workflow';
+import { NodeConnectionType } from 'n8n-workflow';
+import { assetDescription } from './resources/asset';
 
 export class Imagekit implements INodeType {
 	description: INodeTypeDescription = {
@@ -22,7 +25,6 @@ export class Imagekit implements INodeType {
 			baseURL: 'https://api.imagekit.io',
 			headers: {
 				Accept: 'application/json',
-				'Content-Type': 'application/json',
 			},
 		},
 		properties: [
@@ -33,18 +35,37 @@ export class Imagekit implements INodeType {
 				noDataExpression: true,
 				options: [
 					{
-						name: 'User',
-						value: 'user',
+						name: 'Asset',
+						value: 'asset',
 					},
 					{
-						name: 'Company',
-						value: 'company',
+						name: 'File',
+						value: 'file',
+					},
+					{
+						name: 'Folder',
+						value: 'folder',
+					},
+					{
+						name: 'Custom Metadata Fields',
+						value: 'customMetadataFields',
+					},
+					{
+						name: 'Purge Cache',
+						value: 'purgeCache',
+					},
+					{
+						name: 'Metadata',
+						value: 'metadata',
+					},
+					{
+						name: 'Account',
+						value: 'account',
 					},
 				],
 				default: 'user',
 			},
-			...userDescription,
-			...companyDescription,
+			...assetDescription,
 		],
 	};
 }
