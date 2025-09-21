@@ -1,33 +1,36 @@
 import type {
 	IAuthenticateGeneric,
+	Icon,
 	ICredentialTestRequest,
 	ICredentialType,
 	INodeProperties,
 } from 'n8n-workflow';
 
+function getTodayDate() {
+	const today = new Date();
+	return today.toISOString().split('T')[0];
+}
+
 export class ImagekitApi implements ICredentialType {
 	name = 'imagekitApi';
 
-	displayName = 'Imagekit API';
+	displayName = 'ImageKit API';
+
+	icon = { light: 'file:../nodes/Imagekit/imagekit.svg', dark: 'file:../nodes/Imagekit/imagekit.svg' } satisfies Icon;
 
 	// Link to your community node's README
 	documentationUrl = 'https://github.com/org/-imagekit?tab=readme-ov-file#credentials';
 
 	properties: INodeProperties[] = [
 		{
-			displayName: 'Username',
-			name: 'username',
+			displayName: 'Private Key',
+			name: 'privateKey',
 			type: 'string',
 			default: '',
-		},
-		{
-			displayName: 'Password',
-			name: 'password',
-			type: 'string',
+			required: true,
 			typeOptions: {
 				password: true,
 			},
-			default: '',
 		},
 	];
 
@@ -35,8 +38,8 @@ export class ImagekitApi implements ICredentialType {
 		type: 'generic',
 		properties: {
 			auth: {
-				username: '={{$credentials.username}}',
-				password: '={{$credentials.password}}',
+				username: '={{$credentials.privateKey}}',
+				password: '',
 			},
 		},
 	};
@@ -44,7 +47,11 @@ export class ImagekitApi implements ICredentialType {
 	test: ICredentialTestRequest = {
 		request: {
 			baseURL: 'https://api.imagekit.io',
-			url: '/v1/user',
+			url: '/v1/accounts/usage',
+			qs: {
+				startDate: getTodayDate(),
+				endDate: getTodayDate(),
+			},
 		},
 	};
 }

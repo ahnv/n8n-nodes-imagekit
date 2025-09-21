@@ -6,7 +6,7 @@ export class Imagekit implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Imagekit',
 		name: 'imagekit',
-		icon: { light: 'file:imagekit.svg', dark: 'file:imagekit.dark.svg' },
+		icon: { light: 'file:imagekit.svg', dark: 'file:imagekit.svg' },
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
