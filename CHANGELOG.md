@@ -1,5 +1,7 @@
 # Changelog
 
+## [1.0.6](https://github.com/imagekit-developer/n8n-nodes-imagekit/compare/1.0.5...1.0.6) (2026-05-25)
+
 ## [1.0.5](https://github.com/imagekit-developer/n8n-nodes-imagekit/compare/1.0.4...1.0.5) (2026-05-19)
 
 ### Features
