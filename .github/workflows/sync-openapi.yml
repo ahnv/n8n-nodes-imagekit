@@ -35,7 +35,7 @@ jobs:
         run: npm ci
 
       - name: Bump submodule to upstream HEAD
-        run: git submodule update --remote --merge vendor/sdk-generation
+        run: git submodule update --remote vendor/sdk-generation
 
       - name: Regenerate resources
         run: npm run generate
